@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Dla Ciebie ❤️</title>
+
+<style>
+.screen {
+    display: none;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.active {
+    display: flex;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.red {
+    color: #c1121f;
+}
+
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    border-radius: 25px;
+    border: 2px solid #c1121f;
+    background: transparent;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #c1121f;
+    color: white;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    gap: 20px;
+}
+
+.box {
+    background-color: white;
+    border: 3px solid #c1121f;
+
+    padding: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+body {
+                margin: 0;
+                background: url("bg.jpg") no-repeat center center;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .heart {
+                position: relative;
+                width: 400px;
+                height: 400px;
+            }
+            .text {
+                position: absolute;
+                color: #f72e4d;
+                font-size: 12px;
+                font-family: Arial, Helvetica, sans-serif;
+                white-space: nowrap;
+                opacity: 0;
+                animation: fadeIn 2s ease forwards;
+            }
+            @keyframes fadeIn {
+                to {
+                    opacity: 1;
+                }
+            }
+            .pulse {
+                animation: pulse 1.5s infinite;
+            }
+            @keyframes pulse {
+                0%, 100% {transform: scale(1);}
+                50% {transform: scale(1.1);}
+            }
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+</style>
+</head>
+
+<body>
+
+
+<div id="start" class="screen active">
+    <img src="catdance.gif">
+    <h1>Hejka <span class="red">Myszko!</span></h1>
+    <p>chcesz zobaczyć swój prezent?</p>
+    <div>
+        <button onclick="yes()">TAK</button>
+        <button onclick="no()">NIE</button>
+    </div>
+</div>
+
+
+<div id="noScreen" class="screen">
+    <h1>AHA?</h1>
+    <p>Oboje wiemy, że innej opcji nie masz a to tu tak tylko dla wyglądu :*</p>
+    <button onclick="show('start')">Wróć <-</button>
+</div>
+
+
+<div id="password" class="screen">
+    <h1>Podaj tajne hasło 🕵</h1>
+    <input id="pass" placeholder="podpowiedź:data urodzin">
+    <br><br>
+    <button onclick="check()">Sprawdź</button>
+    <p id="error" style="color:red;"></p>
+</div>
+
+<div id="menu" class="screen">
+    <h1 class="red">To dla Ciebie ❤️</h1><h6>Mam nadzieje, że się spodoba</h6>
+
+    <div class="grid">
+        <div class="box" onclick="show('heart')"><img src="serce.jpg"></div>
+        <div class="box" onclick="show('flowers')"><img src="kwiatek.jpg"></div>
+        <div class="box" onclick="show('song')"><img src="lis.png"></div>
+        <div class="box" onclick="show('letter')"><img src="list.jpg"></div>
+    </div>
+</div>
+
+<div id="heart" class="screen heart pulse">
+    <div id="heartContainer"></div>
+    <button onclick="show('menu')">⬅</button>
+</div>
+
+
+<div id="flowers" class="screen">
+    <h1>🌸 Tutaj my 🌸</h1>
+    <img src="1000028687.png">
+    <br><br>
+    <button onclick="show('menu')">⬅</button>
+</div>
+
+
+<div id="song" class="screen">
+    <h1>Lista rzeczy za które cię uwielbiam</h1>
+    <ul>
+        <li></li>
+    </ul>
+    <button onclick="show('menu')">⬅</button>
+</div>
+
+<!-- 💌 LIST -->
+<div id="letter" class="screen">
+    <h1>💌</h1>
+    <p>
+        Kochana Kamila ❤️ <br><br>
+        Chciałem Ci powiedzieć że jesteś dla mnie najważniejsza...
+    </p>
+    <button onclick="show('menu')">⬅</button>
+</div>
+
+<script>
+// zmiana ekranów
+function show(id){
+    document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+
+// logika
+function yes(){ show("password"); }
+function no(){ show("noScreen"); }
+
+function check(){
+    const pass = document.getElementById("pass").value;
+
+    if(pass === "30.04.2008"){ // 🔥 wpisz jej datę
+        show("menu");
+    } else {
+        document.getElementById("error").innerText = "Źle 😜 spróbuj jeszcze raz";
+    }
+}
+
+// ❤️ GENEROWANIE SERCA
+ const heart = document.getElementById("heart");
+
+            function heartfc(t) {
+                const x=16*Math.pow(Math.sin(t),3);
+                const y=13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t);
+                return {x, y};
+            }
+
+            for (let i=0; i<200;i++){
+                const t=Math.PI*2*(i/200);
+                const pos=heartfc(t);
+
+                const span=document.createElement("span");
+                span.className = "text";
+                span.innerText = "Kocham Cie";
+
+                const scale = 20;
+                span.style.left = (pos.x*scale+200)+"px";
+                span.style.top=(-pos.y*scale+200)+"px";
+                span.style.animationDelay=(i*0.01)+"s";
+                heart.appendChild(span);
+            }
+
+// generuj przy wejściu
+document.getElementById("heart").addEventListener("click", heart);
+</script>
+
+</body>
+</html>
