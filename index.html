@@ -155,7 +155,7 @@ input {
 
 <div id="password" class="screen">
     <h1>Podaj tajne hasło 🕵</h1>
-    <input id="pass" placeholder="podpowiedź:data urodzin">
+    <input id="pass" placeholder="podpowiedź na mess">
     <br><br>
     <button onclick="check()">Sprawdź</button>
     <p id="error" style="color:red;"></p>
@@ -233,8 +233,7 @@ input {
 
 <div id="letter" class="screen">
     <div class="card">
-    <div class="title">HAPPIEST BIRTHDAY, MY LOVE!</div>
-
+    <div class="title">WSZYSTKIEGO NAJLEPSZEGO MYSZKO MOJA!!</div>
     <div class="text">Z okazji twoich urodzin kochanie chciałem Ci życzyć wszystkiego co najlepsze,<br>
         żebyś spełniła wszystkie swoje największe marzenia, dużo zdrówka i przede wszystkim,<br>
         żebyś była szczęśliwa bo to dla mnie najważniejsze.
@@ -252,29 +251,20 @@ input {
         i nie zawsze jestem takim chłopakiem jakiego ty byś chciała wiedz że mimo wszystko zawsze się staram i będę starał być dla Ciebie <br>
         jak najlepszy nawet jeśli mi to nie wychodzi a tobie dziękuję że jesteś to naprawdę strasznie dużo dla mnie znaczy jesteś moim największym wsparciem.<br>
         <br>się 
-        Nigdy proszę Cię nie wątp w to czy Cię kocham i nie próbuj myśleć że jakakolwiek inna dziewczyna stanie nam na drodze moje oczy są wpatrzone tylko i wyłącznie w Ciebie i to ty jesteś kobietą z którą moim największym marzeniem jest założyć rodzinę i wieść wspólnie szczęśliwe i spokojne życie i do tego będę z tobą dążył a inne kobiety przy tobie z automatu stały się nieatrakcyjne przez całe swoje życia będę starał Ci się pokazywać że nie wszyscy chłopacy są źli i że ja nie jestem taki jak inni bo naprawdę strasznie mi na tobie zależy. Przepraszam też za to że jestem tak strasznie zazdrosny o każdego chłopaka z którym masz jakikolwiek kontakt staram się to kontrolować ale w ten sposób pokazuje że zależy mi na tobie bardziej niż na czymkolwiek i nie chce Cię stracić. Mam nadzieję że wytrwamy razem jak najdłużej i że przez każdy kolejny rok nie będziemy się poddawać mimo różnic między nami. Liczę również że nawet jeśli będziemy się kłócić albo nadejdą jakieś ciche dni zawsze będziemy trwać przy sobie mimo wszystko i zawsze dojdziemy do porozumienia. Nie zmieniaj się nigdy jesteś cudowna jaka jesteś i kocham w tobie wszystko dziękuję że jesteś kocham Cię najmocniej na świecie pamiętaj że zawsze możesz na mnie liczyć, zawsze przy tobie jestem i razem damy sobie ze wszystkim radę i co jeszcze raz WSZYSTKIEGO NAJLEPSZEGOOO!!!❤️🎉
-        Happy Birthday, my love. Today is all about celebrating the most beautiful soul I’ve ever known.
-        <br>You bring so much light into the world just by being yourself — your kindness, your laughter,
-        your strength,<br> and the way you care so deeply for others.
-
-        <br><br>
-
-        I feel incredibly lucky to walk through life with you by my side. Watching you grow, seeing you smile,
-        and sharing<br> even the smallest moments with you is a gift I never take for granted.
-
-        <br><br>
-
-        You make every day feel special just by being in it. I hope the world gives you back even a fraction
-        of the love and joy you bring into it. <br>You deserve all the happiness your heart can hold.
-
-        <br><br>
-
-        I love you more than words can say and I’m so proud of the person you are.
-        You are truly one of a kind.
+        Nigdy proszę Cię nie wątp w to czy Cię kocham i nie próbuj myśleć że jakakolwiek inna dziewczyna stanie nam na drodze moje oczy są wpatrzone tylko i wyłącznie w Ciebie i to ty jesteś kobietą<br>
+        z którą moim największym marzeniem jest założyć rodzinę i wieść wspólnie szczęśliwe i spokojne życie<br>
+        i do tego będę z tobą dążył a inne kobiety przy tobie z automatu stały się nieatrakcyjne przez całe swoje życia będę starał Ci się pokazywać<br>
+        że nie wszyscy chłopacy są źli i że ja nie jestem taki jak inni bo naprawdę strasznie mi na tobie zależy. <br><br>
+        Przepraszam też że nie jestem taki jak sobie to wymarzyłaś i pewnie nigdy nie bede idealny ale wiedz<br>
+        że staram sie mimo wszystko być dla ciebie jak najlepsze i stopniowo zmieniać w swoim życiu rzeczy tak żeby być w twoich idealny bo nie chce Cię stracić.<br><br>
+        Mam nadzieję że wytrwamy razem jak najdłużej i że przez każdy kolejny rok nie będziemy się poddawać mimo różnic między nami.<br>
+        Liczę również że nawet jeśli będziemy się kłócić albo nadejdą jakieś ciche dni zawsze będziemy trwać przy sobie mimo wszystko i zawsze dojdziemy do porozumienia.<br>
+        Nie zmieniaj się nigdy jesteś cudowna jaka jesteś i kocham w tobie wszystko<br><br>
+        Dziękuję że jesteś kocham Cię najmocniej na świecie pamiętaj że zawsze możesz na mnie liczyć, zawsze przy tobie jestem i razem damy sobie ze wszystkim radę i co jeszcze raz WSZYSTKIEGO NAJLEPSZEGOOO!!!❤️🎉
     </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <div class="signature">
-        Yours forever ❤️
+        Twój Maciek ❤️
     </div>
 
     <div class="line"></div>
@@ -283,27 +273,21 @@ input {
 </div>
 
 <script>
-// zmiana ekranów
 function show(id){
     document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
     document.getElementById(id).classList.add("active");
 }
-
-// logika
 function yes(){ show("password"); }
 function no(){ show("noScreen"); }
-
 function check(){
     const pass = document.getElementById("pass").value;
 
-    if(pass === "30.04.2008"){ // 🔥 wpisz jej datę
+    if(pass === "30.04.2008"){
         show("menu");
     } else {
         document.getElementById("error").innerText = "Źle 😜 spróbuj jeszcze raz";
     }
 }
-
-// ❤️ GENEROWANIE SERCA
  const heart = document.getElementById("heart");
 
             function heartfc(t) {
@@ -311,7 +295,6 @@ function check(){
                 const y=13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t);
                 return {x, y};
             }
-
             for (let i=0; i<200;i++){
                 const t=Math.PI*2*(i/200);
                 const pos=heartfc(t);
@@ -326,8 +309,6 @@ function check(){
                 span.style.animationDelay=(i*0.01)+"s";
                 heart.appendChild(span);
             }
-
-// generuj przy wejściu
 document.getElementById("heart").addEventListener("click", heart);
 </script>
 
